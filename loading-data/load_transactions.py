@@ -16,9 +16,6 @@ def load_transactions_to_hive():
     conn = hive.Connection(host='localhost', port=10000, database='FinTech')
     cursor = conn.cursor()
 
-    # Set Hive mode to nonstrict dynamic partition mode
-    cursor.execute("SET hive.exec.dynamic.partition.mode=nonstrict")
-
     # Create Hive table if not exists (replace placeholders with actual column names and data types)
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS transactions (
